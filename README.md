@@ -1,0 +1,2 @@
+# Stripped
+Theme for Piwigo
