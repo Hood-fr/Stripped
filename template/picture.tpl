@@ -393,8 +393,10 @@ jQuery().ready(function() {
                     <p><label for="email">{'Email'|@translate}{if $comment_add.EMAIL_MANDATORY} ({'mandatory'|@translate}){/if} :</label></p>
                     <p><input type="text" name="email" id="email" value="{$comment_add.EMAIL}"></p>
                   {/if}
+                  {if $comment_add.SHOW_WEBSITE}
                   <p><label for="website_url">{'Website'|@translate} :</label></p>
                   <p><input type="text" name="website_url" id="website_url" value="{$comment_add.WEBSITE_URL}"></p>
+                  {/if}
                   <p><label for="contentid">{'Comment'|@translate} ({'mandatory'|@translate}) :</label></p>
                   <p><textarea name="content" id="contentid" rows="5" cols="50">{$comment_add.CONTENT}</textarea></p>
                   <p><input type="hidden" name="key" value="{$comment_add.KEY}">
