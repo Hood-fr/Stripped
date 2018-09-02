@@ -66,7 +66,17 @@
 						</fieldset>
 					</form>
 				{else}
-					<blockquote><div>{$comment.CONTENT}</div></blockquote>
+					<blockquote><div>{$comment.CONTENT}
+                      {if isset($comment.IS_SPAM)}
+                          {if $comment.IS_SPAM}
+                              {if isset($comment.IS_PENDING)}
+                                  {if $comment.IS_PENDING}
+                                      <br>********* {'Suspected_Spam'|@translate} *********<br>
+                                  {/if}
+                              {/if}
+                          {/if}
+                      {/if}
+                    </div></blockquote>
 				{/if}
 			</div>
 		</li>
