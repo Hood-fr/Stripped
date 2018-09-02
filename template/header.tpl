@@ -7,6 +7,10 @@
 {if isset($INFO_AUTHOR)}
 <meta name="author" content="{$INFO_AUTHOR|@strip_tags:false|@replace:'"':' '}">
 {/if}
+{$TAG_LIST="Daedalum - "}
+{if isset($related_tags)}{$TAG_LIST="{foreach from=$related_tags item=tag name=tag_loop}{if !$smarty.foreach.tag_loop.first}, {/if}{$tag.name}{/foreach}"}{/if}
+<meta name="keywords" content="{$TAG_LIST}">
+<meta name="description2" content="{$PAGE_TITLE}{', '}{$TAG_LIST}">
 {if isset($related_tags)}
 <meta name="keywords" content="{foreach from=$related_tags item=tag name=tag_loop}{if !$smarty.foreach.tag_loop.first}, {/if}{$tag.name}{/foreach}">
 {/if}
