@@ -7,18 +7,15 @@
 {if isset($INFO_AUTHOR)}
 <meta name="author" content="{$INFO_AUTHOR|@strip_tags:false|@replace:'"':' '}">
 {/if}
-{$TAG_LIST="Daedalum - "}
-{if isset($related_tags)}{$TAG_LIST="{foreach from=$related_tags item=tag name=tag_loop}{if !$smarty.foreach.tag_loop.first}, {/if}{$tag.name}{/foreach}"}{/if}
-<meta name="keywords" content="{$TAG_LIST}">
-<meta name="description2" content="{$PAGE_TITLE}{', '}{$TAG_LIST}">
-{if isset($related_tags)}
-<meta name="keywords" content="{foreach from=$related_tags item=tag name=tag_loop}{if !$smarty.foreach.tag_loop.first}, {/if}{$tag.name}{/foreach}">
-{/if}
 {if isset($COMMENT_IMG)}
 <meta name="description" content="{$COMMENT_IMG|@strip_tags:false|@replace:'"':' '}{if isset($INFO_FILE)} - {$INFO_FILE}{/if}">
 {else}
 <meta name="description" content="{$PAGE_TITLE}{if isset($INFO_FILE)} - {$INFO_FILE}{/if}">
 {/if}
+{/if}
+
+{if isset($related_tags)}
+<meta name="keywords" content="{foreach from=$related_tags item=tag name=tag_loop}{if !$smarty.foreach.tag_loop.first}, {/if}{$tag.name}{/foreach}">
 {/if}
 
 {if (isset($REVERSE) and $REVERSE and $PAGE_TITLE == l10n('Home'))}
