@@ -399,16 +399,7 @@ jQuery().ready(function() {
                   <p><input type="text" name="website_url" id="website_url" value="{$comment_add.WEBSITE_URL}"></p>
                   {/if}
                   <p><label for="contentid">{'Comment'|@translate} ({'mandatory'|@translate}) :</label></p>
-                  <p><textarea name="content" id="contentid" rows="5" cols="50">{$comment_add.CONTENT}</textarea>
-                  {if isset($comment_add.IS_SPAM)}
-                      {if $comment_add.IS_SPAM}
-                          {if isset($comment_add.IS_PENDING)}
-                              {if $comment_add.IS_PENDING}
-                                  <br>********* {'Suspected_Spam'|@translate} *********<br>
-                              {/if}
-                          {/if}
-                      {/if}
-                  {/if}</p>
+                  <p><textarea name="content" id="contentid" rows="5" cols="50">{$comment_add.CONTENT}</textarea></p>
                   <p><input type="hidden" name="key" value="{$comment_add.KEY}">
                     <input class="submit" type="submit" value="{'Submit'|@translate}"></p>
                 </form>
