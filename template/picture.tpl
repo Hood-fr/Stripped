@@ -135,7 +135,7 @@ jQuery().ready(function() {
 
 <div id="theImageAndTitle">
 	<div id="theImageBox" >
-		<div class="hideTabsZone hideTabs">&nbsp;</div>
+		<!--<div class="hideTabsZone hideTabs">&nbsp;</div>-->
 		{if (isset($previous) && $stripped.navArrows) }
 			<a href="{$previous.U_IMG}" id="imgprev">&nbsp;</a>
 		{/if}
