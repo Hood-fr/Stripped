@@ -1,5 +1,5 @@
 <div class="titrePage">
-	<h2>stripped Theme v{$options.paramVersion} Configuration</h2>
+	<h2>stripped Theme - Configuration</h2>
 </div>
 
 <form method="post" class="properties" action="" ENCTYPE="multipart/form-data" name="form" class="properties">
