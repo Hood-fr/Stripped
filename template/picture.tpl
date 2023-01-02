@@ -49,7 +49,7 @@ jQuery().ready(function() {
 			<li><a href="{$U_SLIDESHOW_START}" title="{'slideshow'|@translate}" rel="nofollow">{'slideshow'|@translate}</a></li>
 		{/if}{/strip}
 		{strip}{if isset($favorite) }
-			<li><a href="{$favorite.U_FAVORITE}" title="{$favorite.FAVORITE_HINT}">{'Favorites'|@translate}</a></li>
+			<li><a href="{$favorite.U_FAVORITE}" title="{'Favorites'|@translate}">{'Favorites'|@translate}</a></li>
         {/if}{/strip}
 		{strip}{if isset($current.U_DOWNLOAD)}
 			<li><a id="downloadSwitchLink" href="{$current.U_DOWNLOAD}" title="{'download this file'|@translate}">{'Download'|@translate}</a></li>
