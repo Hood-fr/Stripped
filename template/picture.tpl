@@ -49,7 +49,7 @@ jQuery().ready(function() {
 			<li><a href="{$U_SLIDESHOW_START}" title="{'slideshow'|@translate}" rel="nofollow">{'slideshow'|@translate}</a></li>
 		{/if}{/strip}
 		{strip}{if isset($favorite) }
-			<li><a href="{$favorite.U_FAVORITE}" title="{$favorite.FAVORITE_HINT}">{'Favorites'|@translate}</a></li>
+			<li><a href="{$favorite.U_FAVORITE}" title="{if $favorite.IS_FAVORITE}{'delete this photo from your favorites'|@translate}{else}{'add this photo to your favorites'|@translate}{/if}">{'Favorites'|@translate}</a></li>
         {/if}{/strip}
 		{strip}{if isset($current.U_DOWNLOAD)}
 			<li><a id="downloadSwitchLink" href="{$current.U_DOWNLOAD}" title="{'download this file'|@translate}">{'Download'|@translate}</a></li>
@@ -135,7 +135,7 @@ jQuery().ready(function() {
 
 <div id="theImageAndTitle">
 	<div id="theImageBox" >
-		<!--<div class="hideTabsZone hideTabs">&nbsp;</div>-->
+		<div class="hideTabsZone hideTabs">&nbsp;</div>
 		{if (isset($previous) && $stripped.navArrows) }
 			<a href="{$previous.U_IMG}" id="imgprev">&nbsp;</a>
 		{/if}
@@ -386,7 +386,6 @@ jQuery().ready(function() {
 								<h4>{'Add a comment'|@translate}</h4>
 								<form  method="post" action="{$comment_add.F_ACTION}" class="filter" id="addComment" >
                   {if $comment_add.SHOW_AUTHOR}
-                    <p>{'Please register'|translate}</p>
                     <p><label for="author">{'Author'|@translate}{if $comment_add.AUTHOR_MANDATORY} ({'mandatory'|@translate}){/if} :</label></p>
                     <p><input type="text" name="author" id="author" value="{$comment_add.AUTHOR}"></p>
                   {/if}
@@ -394,10 +393,8 @@ jQuery().ready(function() {
                     <p><label for="email">{'Email'|@translate}{if $comment_add.EMAIL_MANDATORY} ({'mandatory'|@translate}){/if} :</label></p>
                     <p><input type="text" name="email" id="email" value="{$comment_add.EMAIL}"></p>
                   {/if}
-                  {if $comment_add.SHOW_WEBSITE}
                   <p><label for="website_url">{'Website'|@translate} :</label></p>
                   <p><input type="text" name="website_url" id="website_url" value="{$comment_add.WEBSITE_URL}"></p>
-                  {/if}
                   <p><label for="contentid">{'Comment'|@translate} ({'mandatory'|@translate}) :</label></p>
                   <p><textarea name="content" id="contentid" rows="5" cols="50">{$comment_add.CONTENT}</textarea></p>
                   <p><input type="hidden" name="key" value="{$comment_add.KEY}">
@@ -423,7 +420,7 @@ jQuery().ready(function() {
 	</div>
     <div style="clear: both;"></div>
 </div>
-{if isset($stripped.imagePreload)}
+{if isset($stripped.imagePreload) && isset($U_IMGNEXT)}
 <div id="image_urls" style="display:none;">
 	{foreach from=$U_IMGNEXT item=u_img key=id}
 		{if isset($u_img)}<div class="next{$id} preload">{$u_img}</div>{/if}

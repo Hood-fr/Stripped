@@ -27,7 +27,7 @@ var image_h = {/literal}{$size[1]}{literal}
 
 	<div id="content">
 		{assign var='display_description_tab' value=false}
-		{if (!($stripped.showDescriptionInsteadOfTitle) && isset($COMMENT_IMG))}
+		{if (empty($stripped.showDescriptionInsteadOfTitle) && isset($COMMENT_IMG))}
 			{assign var='display_description_tab' value=true}
 		{/if}
 
