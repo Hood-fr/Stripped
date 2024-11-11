@@ -36,7 +36,12 @@
 								[{'Delete'|@translate}]
 							</a>
 						{/if}
-						{if isset($comment.U_EDIT) and !isset($comment.IN_EDIT)}
+						{if isset($comment.U_SUBMITSPAM)}
+							<a href="{$comment.U_SUBMITSPAM}" title="{'report spam'|@translate}" onclick="return confirm('{'Spam! Are you sure?'|@translate|@escape:javascript}');">
+								[{'report spam'|@translate}]
+							</a>
+						{/if}
+                        {if isset($comment.U_EDIT) and !isset($comment.IN_EDIT)}
 							<a class="editComment" href="{$comment.U_EDIT}#edit_comment" title="{'edit this comment'|@translate}">
 								[{'edit'|@translate}]
 							</a>
@@ -63,11 +68,22 @@
 							<input type="hidden" name="pwg_token" value="{$comment.PWG_TOKEN}">
 							<input type="hidden" name="image_id" value="{$comment.IMAGE_ID|@default:$current.id}">
 							<input class="submit" type="submit" value="{'Submit'|@translate}">
+                            <a href="{$comment.U_CANCEL}">{'Cancel'|@translate}</a>
 						</fieldset>
 					</form>
 				{else}
-					<blockquote><div>{$comment.CONTENT}</div></blockquote>
-				{/if}
+					<blockquote><div>{$comment.CONTENT}
+                      {if isset($comment.IS_SPAM)}
+                          {if $comment.IS_SPAM}
+                              {if isset($comment.IS_PENDING)}
+                                  {if $comment.IS_PENDING}
+                                      <br>********* {'Suspected_Spam'|@translate} *********<br>
+                                  {/if}
+                              {/if}
+                          {/if}
+                      {/if}
+                    </div></blockquote>
+                {/if}
 			</div>
 		</li>
 	{/foreach}
