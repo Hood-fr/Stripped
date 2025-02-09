@@ -1,7 +1,7 @@
 <?php
 /*
 Theme Name: stripped
-Version: 14.d
+Version: 15.f
 Description: stripped Theme
 Theme URI: https://piwigo.org/ext/extension_view.php?eid=471
 Author: Julien Capitaine (Zaphod on Piwigo forums)
